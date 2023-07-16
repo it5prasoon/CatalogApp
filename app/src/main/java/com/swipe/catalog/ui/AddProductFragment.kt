@@ -44,7 +44,7 @@ class AddProductFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     private val viewModel: AddProductViewModel by viewModel()
-    private lateinit var imageFile: File
+    private var imageFile: File? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -104,32 +104,51 @@ class AddProductFragment : Fragment() {
         binding.spinnerProductType.adapter = adapter
     }
 
+    // Validate and submit the product
     private fun validateAndSubmitProduct() {
         val productType = binding.spinnerProductType.selectedItem as String
         val productName = binding.etProductName.text.toString().trim()
         val sellingPrice = binding.etSellingPrice.text.toString().trim()
         val taxRate = binding.etTaxRate.text.toString().trim()
 
+        if (productType.isEmpty()) {
+            // Product type not selected
+            binding.spinnerProductType.requestFocus()
+            binding.spinnerProductType.performClick()
+            return
+        }
+
         if (productName.isEmpty()) {
-            binding.etProductName.error = "Please enter a product name"
+            // Empty product name
+            binding.tilProductName.error = "Please enter a product name"
+            binding.etProductName.requestFocus()
             return
         }
 
-        if (sellingPrice.isEmpty()) {
-            binding.etSellingPrice.error = "Please enter a valid selling price"
+        if (sellingPrice.isEmpty() || sellingPrice.toDoubleOrNull() == null) {
+            // Invalid selling price
+            binding.tilSellingPrice.error = "Please enter a valid selling price"
+            binding.etSellingPrice.requestFocus()
             return
         }
 
-        if (taxRate.isEmpty()) {
-            binding.etTaxRate.error = "Please enter a valid tax rate"
+        if (taxRate.isEmpty() || taxRate.toDoubleOrNull() == null) {
+            // Invalid tax rate
+            binding.tilTaxRate.error = "Please enter a valid tax rate"
+            binding.etTaxRate.requestFocus()
             return
         }
+
+        // All fields are valid, submit the product
+        binding.tilProductName.error = null
+        binding.tilSellingPrice.error = null
+        binding.tilTaxRate.error = null
 
         val product = AddProductRequest(
             productName,
             productType,
-            sellingPrice,
-            taxRate,
+            sellingPrice.toDouble(),
+            taxRate.toDouble(),
             imageFile
         )
         viewModel.addProduct(product)
@@ -168,7 +187,7 @@ class AddProductFragment : Fragment() {
                 lifecycleScope.launch {
                     try {
                         imageFile = uriToImageFile(result.data?.data!!)
-                        binding.tvSelectedImageName.text = imageFile.name
+                        binding.tvSelectedImageName.text = imageFile?.name
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }

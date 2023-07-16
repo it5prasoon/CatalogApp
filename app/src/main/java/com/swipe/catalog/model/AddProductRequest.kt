@@ -5,7 +5,7 @@ import java.io.File
 data class AddProductRequest(
     val productName: String,
     val productType: String,
-    val price: String,
-    val tax: String,
+    val price: Double,
+    val tax: Double,
     val files: File?
 )

@@ -1,136 +1,145 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:id="@+id/container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="16dp"
-                android:paddingTop="16dp"
-                android:paddingRight="16dp"
-                android:paddingBottom="16dp">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <TextView
-            android:id="@+id/tvProductType"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/product_type"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    <Spinner
-            android:id="@+id/spinnerProductType"
+    <RelativeLayout
+            android:id="@+id/container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvProductType"
-            android:layout_marginTop="8dp" />
+            android:paddingLeft="16dp"
+            android:paddingTop="16dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="16dp">
 
-    <TextView
-            android:id="@+id/tvProductName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/spinnerProductType"
-            android:layout_marginTop="16dp"
-            android:text="@string/product_name"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        <TextView
+                android:id="@+id/tvProductType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/product_type"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
-    <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilProductName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvProductName"
-            android:layout_marginTop="8dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etProductName"
+        <Spinner
+                android:id="@+id/spinnerProductType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text" />
+                android:layout_below="@id/tvProductType"
+                android:layout_marginTop="8dp"/>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+                android:id="@+id/tvProductName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/spinnerProductType"
+                android:layout_marginTop="16dp"
+                android:text="@string/product_name"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
-    <TextView
-            android:id="@+id/tvSellingPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tilProductName"
-            android:layout_marginTop="16dp"
-            android:text="@string/selling_price"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilSellingPrice"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvSellingPrice"
-            android:layout_marginTop="8dp">
-
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etSellingPrice"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilProductName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:layout_below="@id/tvProductName"
+                android:layout_marginTop="8dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
 
-    <TextView
-            android:id="@+id/tvTaxRate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tilSellingPrice"
-            android:layout_marginTop="16dp"
-            android:text="@string/tax_rate"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilTaxRate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvTaxRate"
-            android:layout_marginTop="8dp">
+        <TextView
+                android:id="@+id/tvSellingPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilProductName"
+                android:layout_marginTop="16dp"
+                android:text="@string/selling_price"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etTaxRate"
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilSellingPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal" />
+                android:layout_below="@id/tvSellingPrice"
+                android:layout_marginTop="8dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etSellingPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"/>
 
-    <TextView
-            android:id="@+id/tvChooseImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tilTaxRate"
-            android:layout_marginTop="16dp"
-            android:text="@string/choose_image"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-            android:id="@+id/btnChooseImage"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tvChooseImage"
-            android:layout_marginTop="8dp"
-            android:text="@string/choose_image" />
+        <TextView
+                android:id="@+id/tvTaxRate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilSellingPrice"
+                android:layout_marginTop="16dp"
+                android:text="@string/tax_rate"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
 
-    <TextView
-            android:id="@+id/tvSelectedImageName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/btnChooseImage"
-            android:layout_alignBaseline="@id/btnChooseImage"
-            android:layout_marginStart="8dp"
-            android:text=""
-            android:textSize="14sp" />
+        <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTaxRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvTaxRate"
+                android:layout_marginTop="8dp">
 
-    <Button
-            android:id="@+id/btnAddProduct"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btnChooseImage"
-            android:layout_marginTop="16dp"
-            android:text="@string/add_product" />
+            <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etTaxRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"/>
 
-</RelativeLayout>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+                android:id="@+id/tvChooseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tilTaxRate"
+                android:layout_marginTop="16dp"
+                android:text="@string/choose_image"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+        <Button
+                android:id="@+id/btnChooseImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tvChooseImage"
+                android:layout_marginTop="8dp"
+                android:text="@string/choose_image"
+                android:backgroundTint="@color/light_color" />
+
+        <TextView
+                android:id="@+id/tvSelectedImageName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/btnChooseImage"
+                android:layout_alignBaseline="@id/btnChooseImage"
+                android:layout_marginStart="8dp"
+                android:text=""
+                android:textSize="14sp"/>
+
+        <Button
+                android:id="@+id/btnAddProduct"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnChooseImage"
+                android:layout_marginTop="16dp"
+                android:layout_centerHorizontal="true"
+                android:text="@string/add_product" />
+
+    </RelativeLayout>
+</ScrollView>

@@ -27,13 +27,15 @@ class AddProductViewModel(private val productApiService: ProductApiService) : Vi
                 val response = productApiService.addProduct(
                     product.productName.toRequestBody(),
                     product.productType.toRequestBody(),
-                    product.price.toRequestBody(),
-                    product.tax.toRequestBody(),
-                    MultipartBody.Part.createFormData(
-                        "files[]",
-                        product.files?.name,
-                        RequestBody.create("image/*".toMediaTypeOrNull(), product.files!!)
-                    )
+                    product.price.toString().toRequestBody(),
+                    product.tax.toString().toRequestBody(),
+                    product.files?.let { RequestBody.create("image/*".toMediaTypeOrNull(), it) }?.let {
+                        MultipartBody.Part.createFormData(
+                            "files[]",
+                            product.files?.name,
+                            it
+                        )
+                    }
                 )
                 Log.i("Logs - Add Product", response.message)
                 _addProductResult.value = ApiResponse.Success(Unit)
