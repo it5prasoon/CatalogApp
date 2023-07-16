@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">CatalogApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_add_product">Add Product</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="search">Search</string>
+    <string name="add_product">Add Product</string>
+    <string name="tax_rate">Tax Rate</string>
+    <string name="product_type">Product Type</string>
+    <string name="product_name">Product Name</string>
+    <string name="selling_price">Price</string>
+    <string name="choose_image">Choose Image</string>
+</resources>
